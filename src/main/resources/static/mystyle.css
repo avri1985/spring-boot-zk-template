@@ -1,0 +1,44 @@
+.z-window-content {
+    border: 1px solid #cfcfcf;
+    margin: 0;
+    padding: 1px;
+    background: #fff;
+    overflow: hidden;
+    zoom: 1;
+}
+
+.z-window-header {
+    padding-bottom: 4px;
+}
+
+.z-grid-body .z-cell {
+    font-family: Arial,Sans-serif;
+    font-size: 12px;
+    padding: 0px;
+    line-height: 24px;
+    overflow: hidden;
+}
+
+
+body {
+    margin: 0px;
+    padding: 0px;
+}  
+
+
+.numbox {
+    color: #555 !important; 
+    font-size: 13px !important; 
+    font-family: Verdana, Arial, Helvetica, sans-serif !important;    
+    text-align: right;
+}
+
+
+.m-caption {
+    margin: 0px 0px 0px 10px;
+    vertical-align: middle;
+    padding:0px 15px 0px 0px;
+    font-weight: bold;
+    font-size: 12pt; 
+    color:#000;
+}
