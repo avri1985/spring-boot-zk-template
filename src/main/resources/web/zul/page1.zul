@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?page title="Zk Apps" contentType="text/html;charset=UTF-8"?>
+<?link rel="stylesheet" type="text/css"	href="mystyle.css" ?>
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window closable="false" id="windowmain" shadow="false" border="normal" width="100%" height="100%"
+            position="center" style="padding: 0px 3px 5px 3px;"
+            apply="org.zkoss.bind.BindComposer" 
+            validationMessages="@id('vmsgs')" viewModel="@id('vm') @init('com.mkdika.springbootzktemplate.zk.controller.Page2Vm')" >            
+        <caption id="caption" label="@load(vm.appInfo)" class="m-caption"/>
+        <vbox>
+            <hbox>
+                Jumlah Bilangan  
+                <intbox value="@bind(vm.no)" />
+            </hbox>
+            <button action="" label="Random" onClick="@command('process')" />
+            <label value="@bind(vm.result)" />
+        </vbox>                
+    </window>        
+</zk>

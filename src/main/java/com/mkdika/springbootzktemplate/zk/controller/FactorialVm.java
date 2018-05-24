@@ -37,23 +37,35 @@ import org.zkoss.zul.ListModelList;
  */
 @Getter
 @Setter
-public class IndexVm {
+public class FactorialVm {
 
-    private final String appInfo = "Hello World";
-    
-    private String greeting;
-    
-    private String nama;
+    private final String appInfo = "Factorial";
+
+    private int n;
+    private String result;
 
     @Init
     public void init() {
-        
+
     }
-    
+
     @Command
-    @NotifyChange("greeting")
+    @NotifyChange("result")
     public void submit() {
-        greeting = "Selamat Malam " + nama;
+
+        if (n < 0) {
+            result = "N harus diatas samadengan nol.";
+        } else if (n == 0) {
+            result = "Faktorial dari 0 adalah 0";
+        } else {
+            int x = 1;
+            for (int i = 1; i <= n; i++) {
+                x *= i;
+            }
+
+            result = "Faktorial dari " + n + " adalah " + String.valueOf(x);
+        }
+
     }
 
 }

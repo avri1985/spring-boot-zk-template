@@ -37,23 +37,40 @@ import org.zkoss.zul.ListModelList;
  */
 @Getter
 @Setter
-public class IndexVm {
+public class FactorialRecursiveVm {
 
-    private final String appInfo = "Hello World";
-    
-    private String greeting;
-    
-    private String nama;
+    private final String appInfo = "Factorial Recursive";
+
+    private int n;
+    private String result;
 
     @Init
     public void init() {
-        
+
+    }
+
+    @Command
+    @NotifyChange("result")
+    public void submit() {
+
+        if (n < 0) {
+            result = "N harus diatas samadengan nol.";
+        } else if (n == 0) {
+            result = "Faktorial dari 0 adalah 0";
+        } else {
+           
+
+            result = "Faktorial dari " + n + " adalah " + frec(n);
+        }
+
     }
     
-    @Command
-    @NotifyChange("greeting")
-    public void submit() {
-        greeting = "Selamat Malam " + nama;
+    private int frec(int n) {
+        if (n == 1) {
+            return n;
+        }else {            
+            return n*frec(--n);
+        }
     }
 
 }

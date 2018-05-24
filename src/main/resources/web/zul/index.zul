@@ -7,6 +7,10 @@
             apply="org.zkoss.bind.BindComposer" 
             validationMessages="@id('vmsgs')" viewModel="@id('vm') @init('com.mkdika.springbootzktemplate.zk.controller.IndexVm')" >            
         <caption id="caption" label="@load(vm.appInfo)" class="m-caption"/>
-        Hello World!
+        <vbox></vbox>
+        Nama       
+        <textbox value="@bind(vm.nama)" />
+        <button action="" label="Submit" onClick="@command('submit')" />
+        <label value="@bind(vm.greeting)" />
 </window>        
 </zk>

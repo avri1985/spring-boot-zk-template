@@ -23,13 +23,13 @@
  */
 package com.mkdika.springbootzktemplate.zk.controller;
 
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
 import lombok.Getter;
 import lombok.Setter;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
-import org.zkoss.zul.ListModelList;
 
 /**
  *
@@ -37,23 +37,50 @@ import org.zkoss.zul.ListModelList;
  */
 @Getter
 @Setter
-public class IndexVm {
+public class SortVm {
 
-    private final String appInfo = "Hello World";
-    
-    private String greeting;
-    
-    private String nama;
+    private final String appInfo = "Max Value";
+
+    private Integer no;
+    private String result;
+    private String result1;    
 
     @Init
     public void init() {
-        
+
     }
-    
+
     @Command
-    @NotifyChange("greeting")
-    public void submit() {
-        greeting = "Selamat Malam " + nama;
+    @NotifyChange({"result","result1"})
+    public void process() {
+
+        if (no < 0) {
+            result = "tidak boleh dibawah nol!";
+        } else {
+            int[] x = new int[no];
+            Random r = new Random();
+            for (int i = 0; i < no; i++) {
+                x[i] = r.nextInt(101);
+            }
+
+            result = "unsorted: " + Arrays.toString(x).replace("[", "{").replace("]", "}");
+            
+            for (int i=0;i<(x.length-1);i++) {
+                for (int j=0;j<(x.length-1);j++) {
+                    if (x[j+1] < x[j]) {
+                        x[j] = x[j]+ x[j+1];
+                        x[j+1] = x[j] - x[j+1];
+                        x[j] = x[j] - x[j+1];
+                    }
+                }
+            }
+            
+            result1 = "sorted: "+ Arrays.toString(x).replace("[", "{").replace("]", "}");
+            
+            
+            
+            
+        }
     }
 
 }
